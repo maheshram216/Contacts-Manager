@@ -1,2 +1,0 @@
-# Contacts-Manager
-Deploy project
