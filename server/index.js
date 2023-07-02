@@ -9,7 +9,7 @@ const cors = require('cors')
 
 dotenv.config({path:'./config.env'})
 
-const PORT = process.env.PORT
+const PORT = process.env.PORT || 8000
 const URL = process.env.URL
 const SECRET = process.env.SECRET
 const app = express();
