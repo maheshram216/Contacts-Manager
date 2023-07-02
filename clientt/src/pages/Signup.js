@@ -13,7 +13,6 @@ const Signup = () => {
   const { signupUser } = useContext(AuthContext);
 
   const [credentials, setCredentials] = useState({
-    name: "",
     email: "",
     password: "",
     confirmPassword: "",
@@ -42,7 +41,7 @@ const Signup = () => {
       alert(("Password does not match!"));
       return;
     }
-    if (credentials.password.length < 8) {
+    if (credentials.password.length < 5) {
       alert("Password should be at least 8 characters long");
       return;
     }

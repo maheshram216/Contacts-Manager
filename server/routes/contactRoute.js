@@ -6,10 +6,11 @@ const csvtojson = require('csvtojson');
 
 router.get("/mycontacts", async (req, res) => {
     try {
-      const mycontacts = await usercontact.find({ user: req.user._id }).populate(
-        "user",
-        "password"
-      );
+      const mycontacts = await usercontact.find({ user: req.user })
+      // .populate(
+      //   "email",
+      //   "password"
+      // );
       console.log(mycontacts);
       return res.status(200).json({
         contacts: mycontacts,
@@ -55,7 +56,7 @@ const FileStorage = multer.diskStorage({
             email: csvdata[i].email,
             phonenumber: csvdata[i].phonenumber,
             country: csvdata[i].country,
-            user: req.user._id,
+            user: req.user,
           });
           newContact.save();
         }
