@@ -33,7 +33,7 @@ app.use('/contact', (req, res, next) => {
                 });
             }
             req.user = decoded.data
-            // console.log(decoded.data);
+            console.log(decoded.data);
             next();
         });
     } else {
