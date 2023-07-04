@@ -6,10 +6,11 @@ const bodyParser = require('body-parser');
 const contacts = require('./routes/contactRoute');
 const login = require('./routes/usersRoute');
 const cors = require('cors')
+const path = require('path')
 
-dotenv.config({path:'./config.env'})
+dotenv.config({ path: './config.env' })
 
-const PORT = process.env.PORT || 8000
+const PORT = process.env.PORT
 const URL = process.env.URL
 const SECRET = process.env.SECRET
 const app = express();
@@ -19,7 +20,7 @@ app.use(cors());
 app.use(bodyParser.urlencoded({ extended: false }));
 app.use(express.json());
 
-// app.use(express.static(path.join(__dirname + "/public")))
+app.use(express.static(path.join(__dirname, "./client/build")))
 
 app.use('/contact', (req, res, next) => {
     if (req.headers.authorization) {
